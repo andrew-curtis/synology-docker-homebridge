@@ -12,7 +12,7 @@ The Docker image has already been built and is on the Docker Hub repository at h
 On your Synology NAS, create a "docker" folder on your shared volume and then create a subfolder "homebridge". After creating your config.json and package.json files, copy them to the shared "docker/homebridge" folder. The config.json will have your homebridge config and the package.json will list the NPM packages that you want to be built each time the container is run. See https://github.com/psmith3/synology-docker-homebridge/tree/master/config-sample for samples of both the config.json and package.json files.
 
 Run the container from command line by in the NAS entering
-sudo docker run --name=homebridge -d --restart=always --net=host -p 51826:51826 -v /volume1/docker/homebridge:/root/.homebridge psmith/synology-docker-homebridge:0.13
+`sudo docker run --name=homebridge -d --restart=always --net=host -p 51826:51826 -v /volume1/docker/homebridge:/root/.homebridge psmith/synology-docker-homebridge:0.13`
 Enter your root password to run the command.
 
 If you are running the firewall on the Synology, you will need to open TCP 5353 & 51826. If you do not, the firewall will close within a few minutes and your app will not be reachable from an IOS device.
