@@ -8,10 +8,11 @@ For details see https://github.com/nfarina/homebridge
 This is a Docker built version of Homebridge designed to run on a Synology NAS from https://github.com/nfarina/homebridge and built from https://github.com/cbrandlehner/homebridge-docker version. I am running a Synology 1815+ and DSM 6.0-7321.
 
 The Docker image has already been built and is on the Docker Hub repository at https://hub.docker.com/r/psmith/synology-docker-homebridge/ 
+You can search for it from the Synology Docker console Registry and load the image directly to your NAS.
 
-On your Synology NAS, create a "docker" folder on your shared volume and then create a subfolder "homebridge". After creating your config.json and package.json files, copy them to the shared "docker/homebridge" folder. The config.json will have your homebridge config and the package.json will list the NPM packages that you want to be built each time the container is run. See https://github.com/psmith3/synology-docker-homebridge/tree/master/config-sample for samples of both the config.json, package.json and homebridge_start.sh files.
+On your Synology NAS, create a "docker/homebridge" folder. After creating your config.json and package.json files, copy them to the shared "docker/homebridge" folder. The config.json will have your homebridge config and the package.json will list the NPM packages that you want to be built each time the container is run. You do not have to build a new image everytime you want to add plugins! See https://github.com/psmith3/synology-docker-homebridge/tree/master/config-sample for samples of both the config.json, package.json and homebridge_start.sh files.
 
-Run the container from the `homebridge_start.sh` via the Synology Task Scheduler or via SSH command line by entering
+Run the container from the `homebridge_start.sh` via the Synology Task Scheduler in Coltrol Panel or via SSH command line by entering
 
 `sudo docker run --name=homebridge -d --restart=always --net=host -p 51826:51826 -v /volume1/docker/homebridge:/root/.homebridge psmith/synology-docker-homebridge:0.13`
 
