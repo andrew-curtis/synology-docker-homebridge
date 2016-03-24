@@ -21,53 +21,41 @@ If you want to use Synology Task Scheduler in the Control Panel of the NAS, you 
 
 If you are running the firewall on the Synology, you will need to open TCP 5353 & 51826. You could select from a list of built-in applications and select "Docker homebridge 51826 Docker (TCP)" and "Bonjour 5353 Bonjour Service" You can find the firwall profiles under the Control Panel/Security. If you do not open these ports, the firewall will close within a few minutes and your app will not be reachable from an IOS device.
 
-If you want to build your own Docker image follow these steps:
-## Configuration
+##Plugins
+You can find all of the plugins on NPM at https://www.npmjs.com/search?q=homebridge+plugin 
 
+## Configuration
 Copy `config-sample.json` to `config.json` and adapt to your likings.
 
-## Build
+To build your own Docker images, follow these commands:
 
+## Build
 `./homebridge.sh build`
 
-## Run
-
 ### run first time
-
 `./homebridge.sh run`
 
 ### stop
-
 `./homebridge.sh stop`
 
 ### start
-
 (after stopping)
-
 `./homebridge.sh start`
 
 ### remove
-
 (needed before run is possible again)
-
 `./homebridge.sh remove`
 
 ### rerun
-
 Stops and removes the containers, then performs run again
-
 `./homebridge.sh rerun`
 
 ### attach
-
 Attaches to the running container
-
 `./homebridge.sh attach`
 
 ### logs
-
 Diplays stdout log of the running container
-
 `./homebridge.sh logs`
 
 ## Changelog
