@@ -10,7 +10,7 @@ This is a Docker enabled version of Homebridge designed to run on a Synology NAS
 The Docker image has already been built and is on the Docker Hub repository at https://hub.docker.com/r/psmith/synology-docker-homebridge/ 
 You can search for it from the Synology Docker console Registry and load the image directly to your NAS.
 
-On your Synology NAS, create a "docker/homebridge" folder. After creating your config.json and package.json files, copy them to the shared "docker/homebridge" folder. The config.json will have your homebridge config and the package.json will list the NPM packages that you want to be built each time the container is run. You do not have to build a new image everytime you want to add plugins! See https://github.com/psmith3/synology-docker-homebridge/tree/master/config-sample for samples of both the config.json, package.json and homebridge_start.sh files.
+On your Synology NAS, create a "docker/homebridge" folder. After creating your config.json and package.json files, copy them to the shared "docker/homebridge" folder. The config.json will have your homebridge config and the package.json will list the NPM packages that you want to be built each time the container is run. You do not have to build a new image everytime you want to add plugins! See https://github.com/psmith3/synology-docker-homebridge/tree/master/config-sample for samples of both the config.json, package.json and homebridge_start.sh files. If you make any changes to the config.json or package.json files, you will need to restsart homebridge for the settings to take.
 
 Run the container from the `homebridge_start.sh` via the Synology Task Scheduler in Coltrol Panel or via SSH command line by entering
 
