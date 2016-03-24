@@ -17,9 +17,9 @@ Run the container from the `homebridge_start.sh` via the Synology Task Scheduler
 
 Enter your root password to run the command.
 
-If you want to use Synology Task Scheduler in the Control Panel of the NAS, you will want to create a task that runs the `homebridge_start.sh` at bootup and optionally, I have another that restarts the container at 1:45am everynight. You will need to make the task user `root`.
+If you want to use Synology Task Scheduler in the Control Panel of the NAS, you will need to copy `homebridge_start.sh` to the "docker/homebridge" folder on the shared volume. Next, create a task that runs the `docker/homebridge/homebridge_start.sh` at bootup and optionally, I have another that restarts the container at 1:45am everynight. This is not neccesary, but in my earlier testing, I often rebooted and just built the task to keep it all clean. For the tasks, you will need to make the task user `root`.
 
-If you are running the firewall on the Synology, you will need to open TCP 5353 & 51826. If you do not, the firewall will close within a few minutes and your app will not be reachable from an IOS device.
+If you are running the firewall on the Synology, you will need to open TCP 5353 & 51826. You also select from a list of built-in applications and select "Docker homebridge 51826 Docker (TCP)" and "Bonjour 5353 Bonjour Service" You can find the firwall profiles under the Control Panel/Security. If you do not open these ports, the firewall will close within a few minutes and your app will not be reachable from an IOS device.
 
 If you want to build your own Docker image follow these steps:
 ## Configuration
