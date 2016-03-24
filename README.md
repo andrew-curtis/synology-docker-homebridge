@@ -1,24 +1,23 @@
-[![Docker Stars](https://img.shields.io/docker/stars/cbrandlehner/homebridge.svg)](https://hub.docker.com/r/cbrandlehner/homebridge/)
-[![Docker Pulls](https://img.shields.io/docker/pulls/cbrandlehner/homebridge.svg)](https://hub.docker.com/r/cbrandlehner/homebridge/)
-[![GitHub forks](https://img.shields.io/github/forks/cbrandlehner/homebridge-docker.svg?style=social&label=Fork)](https://github.com/cbrandlehner/homebridge-docker)
-# Homebridge-Docker
 
-Docker image for Homebrigde
+# synology-docker-homebridge
+
+Docker image of Homebrigde for running on a Synology NAS
 
 For details see https://github.com/nfarina/homebridge
 
-This is simply wrapping the source in a runnable Docker image for everyone that cannot install the dev environment on his machine or everyone that wants a simple containerized solution.
+This is a Docker built version of Homebridge designed to run on a Synology NAS from https://github.com/nfarina/homebridge and built from https://github.com/cbrandlehner/homebridge-docker version. I am running a Synology 1815+ and DSM 6.0-7321.
 
-## Supported plugins
-homebridge-philipshue
-homebridge-ninjablock-temperature
-homebridge-ninjablock-humidity
-homebridge-ninjablock-alarmstatedevice
-homebridge-luxtronik2
-homebridge-mqttswitch
-homebridge-edomoticz
-homebridge-synology
+The Docker image has already been built and is on the Docker Hub repository at https://hub.docker.com/r/psmith/synology-docker-homebridge/ 
 
+On your Synology NAS, create a "docker" folder on your shared volume and then create a subfolder "homebridge". After creating your config.json and package.json files, copy them to the shared "docker/homebridge" folder. The config.json will have your homebridge config and the package.json will list the NPM packages that you want to be built each time the container is run. See https://github.com/psmith3/synology-docker-homebridge/tree/master/config-sample for samples of both the config.json and package.json files.
+
+Run the container from command line by in the NAS entering
+sudo docker run --name=homebridge -d --restart=always --net=host -p 51826:51826 -v /volume1/docker/homebridge:/root/.homebridge psmith/synology-docker-homebridge:0.13
+Enter your root password to run the command.
+
+If you are running the firewall on the Synology, you will need to open TCP 5353 & 51826. If you do not, the firewall will close within a few minutes and your app will not be reachable from an IOS device.
+
+If you want to build your own Docker image follow these steps:
 ## Configuration
 
 Copy `config-sample.json` to `config.json` and adapt to your likings.
