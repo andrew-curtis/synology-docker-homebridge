@@ -3,9 +3,9 @@
 
 Docker image of Homebrigde for running on a Synology NAS
 
-For details see https://github.com/nfarina/homebridge
+For details on Homebridge, see https://github.com/nfarina/homebridge
 
-This is a Docker built version of Homebridge designed to run on a Synology NAS from https://github.com/nfarina/homebridge and built from https://github.com/cbrandlehner/homebridge-docker version. I am running a Synology 1815+ and DSM 6.0-7321.
+This is a Docker enabled version of Homebridge designed to run on a Synology NAS from https://github.com/nfarina/homebridge and built from https://github.com/cbrandlehner/homebridge-docker version. I am running a Synology 1815+ and DSM 6.0-7321.
 
 The Docker image has already been built and is on the Docker Hub repository at https://hub.docker.com/r/psmith/synology-docker-homebridge/ 
 You can search for it from the Synology Docker console Registry and load the image directly to your NAS.
