@@ -6,7 +6,7 @@ cd $BASEDIR
 VERSION=$(<VERSION)
 # FROM=$(<FROM)
 # SPECIFIC_FILE=Dockerfile.specific
-IMAGE_NAME=homebridge-v$VERSION
+IMAGE_NAME=synology-docker-homebridge-v$VERSION
 # SED_COMMAND="sed -i \"/#####SPECIFIC#####/ r $SPECIFIC_FILE\" Dockerfile"
 
 # source homebridge-common.sh
@@ -26,12 +26,12 @@ _build() {
   ## eval $SED_COMMAND
 
   # Build
-  docker build --tag="cbrandlehner/homebridge:$VERSION" .
+  docker build --tag="psmith/synology-docker-homebridge:$VERSION" .
 }
 
 _run() {
   # Run (first time)
-  docker run -d --net=host -p 51826:51826 -v /etc/homebridge:/root/.homebridge --name $IMAGE_NAME cbrandlehner/homebridge:$VERSION
+  docker run -d --net=host -p 51826:51826 -v /etc/homebridge:/root/.homebridge --name $IMAGE_NAME psmith/synology-docker-homebridge:$VERSION
 }
 
 _stop() {
@@ -64,7 +64,7 @@ _logs() {
 }
 
 _push() {
-  docker push cbrandlehner/homebridge:$VERSION
+  docker push psmith/synology-docker-homebridge:$VERSION
 }
 
 eval _$ACTION
